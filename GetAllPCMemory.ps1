@@ -19,6 +19,8 @@ param(
 	# Memory Gigabyte threshold for outputting green text
 	[int] $Threshold = 8
 )
+#Requires -Modules ActiveDirectory
+
 $outputFile = ".\Memlist.csv"
 $pcList = (Get-ADComputer -Filter * -SearchBase $searchBase | Select-Object Name).Name
 $results = [System.Collections.ArrayList]@()
