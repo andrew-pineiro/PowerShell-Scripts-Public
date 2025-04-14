@@ -15,8 +15,14 @@ function CreateAndSetReg {
         Write-Host "Invalid Protocol Specified: $Protocol"
         return
     }
-    $Enabled = ($Protocol -in $GoodProtocols  ? 1 : 0)
-    $DisabledByDefault = ($Protocol -in $GoodProtocols ? 0 : 1)
+    $Enabled = 0
+    if($Protocol -in $GoodProtocols) {
+        $Enabled = 1
+    }
+    $DisabledByDefault = 1
+    if($Protocol -in $GoodProtocols) {
+        $DisabledByDefault = 0
+    } 
 
     New-Item "$RootPath\$Protocol\Client" -Force | Out-Null
     New-Item "$RootPath\$Protocol\Server" -Force | Out-Null
