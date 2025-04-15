@@ -5,7 +5,8 @@ param(
 )
 
 $RootPath = "SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers"
-$BadCiphers = @("DES 56/56", "RC2 40/128", "RC4 56/128")
+# Ciphers listed in https://ciphersuite.info/cs/?security=insecure that are enabled on IIS by default (Windows Server 2016)
+$BadCiphers = @("DES 56/56", "RC2 40/128", "RC4 56/128", "RC4 128/128", "Triple DES 168")
 
 function CreateAndSetReg {
     param(
