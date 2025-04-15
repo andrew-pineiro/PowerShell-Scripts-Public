@@ -1,8 +1,9 @@
+#Requires -RunAsAdministrator
+
 [CmdletBinding()]
 param(
     [switch]$EnableTLS13
 )
-#Requires -RunAsAdministrator
 
 $RootPath = "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols"
 $ValidProtocols = @("SSL 2.0", "SSL 3.0", "TLS 1.0", "TLS 1.1", "TLS 1.2", "TLS 1.3")
